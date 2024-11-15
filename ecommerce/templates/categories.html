@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+	<!-- hero area -->
+	<div class="hero-area hero-bg">
+		<div class="container">
+			<div class="row">
+				<div class="col-lg-9 offset-lg-2 text-center">
+					<div class="hero-text">
+
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<!-- end hero area -->
+<div class="container mt-5 p-3" style="margin-bottom:100px;">
+    <h2 class="text-center" style="color:orange;">Our Collections</h2>
+    <p style="text-align:justify;line-height:2; font-size:20px;" >Savor the freshest flavors of nature with our handpicked selection of fruits and vegetables, freshly pressed juices, and more. Nourish your body with the best quality produce, delivered straight from farm to table. Our wide range of fruits and vegetables includes seasonal favorites as well as exotic varieties, so you can always find something new to try. We also offer a variety of freshly made juices, crafted with the finest ingredients and packed with essential vitamins and minerals.More than just a grocery store, Green Grocery is a gateway to a healthier lifestyle. We believe that eating fresh, wholesome foods is the key to optimal health and well-being. That's why we're passionate about providing our customers with the best possible produce and making it easy for them to incorporate healthy eating into their daily lives.</p>
+</div>
+
+
+<div class="row">
+	{% for i in cat %}
+				<div class="col-lg-4 col-md-6">
+					<div class="single-latest-news card mx-auto" style="width:25rem;">
+						<a href="single-news.html"><img src="{{i.image.url}}" height="200px" width="100%"></a>
+						<div class="news-text-box">
+							<h3>{{i.name}}</h3>
+
+							<a href="{% url 'shop:products' i.id %}" class="read-more-btn">Show All<i class="fas fa-angle-right"></i></a>
+						</div>
+					</div>
+				</div>
+    {% endfor %}
+
+			</div>
+
+{% endblock %}

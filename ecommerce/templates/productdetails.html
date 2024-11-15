@@ -1,0 +1,54 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+
+	<div class="breadcrumb-section breadcrumb-bg">
+		<div class="container">
+			<div class="row"  style="height:5px;">
+				<div class="col-8 offset-lg-2 text-center">
+					<div class="breadcrumb-text">
+
+						<h1>Product Details</h1>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+
+<div class="card  mt-5 p-5  mb-5 mx-auto" style="max-width: 800px; height:400px;line-height: 2;">
+  <div class="row g-0">
+    <div class="col-md-4">
+      <img src="{{productdetail.image.url}}"  height="315px" width="600px" >
+    </div>
+    <div class="col-md-8">
+      <div class="card-body">
+        <h5 class="card-title">Name : {{productdetail.name}}</h5>
+        <p class="card-text">About : {{productdetail.desc}}</p>
+        <p class="card-text">Price : Rs.{{productdetail.price}}</p>
+	    <p class="card-text">Stock : {{productdetail.stock}}</p>
+          <p class="card-text">Last Updated : {{productdetail.updated}}</p>
+        {% if user.is_superuser == True %}
+          {% if productdetail.stock > 0 %}
+          <h5>Product in stock</h5>
+          <a href="{% url 'shop:addstock' productdetail.id %}" class="cart-btn"> ADD STOCK</a>
+          {% else %}
+          <h5>Product Out of stock</h5>
+          <a href="{% url 'shop:addstock' productdetail.id %}" class="cart-btn"> ADD STOCK</a>
+          {% endif %}
+
+         {% else %}
+          {% if productdetail.stock > 0 %}
+         <a href="{% url 'cart:addtocart' productdetail.id %}" class="cart-btn"><i class="fas fa-shopping-cart"></i> Add to Cart</a>
+          {% else %}
+          <h5>Product Out of stock</h5>
+          {% endif %}
+          {% endif %}
+
+      </div>
+    </div>
+  </div>
+</div>
+</div>
+
+{% endblock %}

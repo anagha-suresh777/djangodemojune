@@ -1,0 +1,47 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+
+<div class="container" style="height:200px; width:100%;" ></div>
+<h2 class="text-center">Add Product Details</h2>
+
+<div class="container mt-5 p-3 container-fluid">
+<form method="POST" enctype="multipart/form-data">
+ {% csrf_token %}
+<div class="mb-3">
+    <label  class="form-label">Name</label>
+  <input type="text" class="form-control" name="n" placeholder="enter product name" >
+
+</div>
+        <div class="mb-3">
+    <label  class="form-label">Image</label>
+    <input type="file" class="form-control" name="i" >
+  </div>
+ <div class="mb-3">
+  <label class="form-label">Description</label>
+  <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" name="d" placeholder="enter product description" ></textarea>
+</div>
+
+ <div class="mb-3">
+    <label  class="form-label">Stock</label>
+    <input type="number" class="form-control" name="s"  placeholder="enter stock">
+  </div>
+ <div class="mb-3">
+    <label  class="form-label">Price</label>
+    <input type="number" class="form-control" name="p"  placeholder="enter price">
+  </div>
+
+     <div class="mb-3">
+    <label  class="form-label">Category</label>
+<select class="form-select" name="c">
+  {% for i in links %}
+  <option value="{{i.name}}">{{i.name}}</option>
+    {% endfor %}
+</select>
+     </div>
+<div class="mb-3">
+    <button type="submit" class="form-control btn btn-warning">Submit</button>
+  </div>
+</form>
+    </div>
+{% endblock %}

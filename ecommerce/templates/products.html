@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+<img src="{{particular.image.url}}" width="100%">
+<h3 class="text-center mt-5">{{particular.name}}</h3>
+<p class="text-center mt-5">{{particular.description}}</p>
+
+
+			<div class="row">
+				{% for i in product %}
+				<div class="col-lg-4 col-md-6 text-center">
+					<div class="single-product-item card mx-auto" style="width:25rem;">
+						<div class="product-image">
+							<a href="single-product.html"><img src="{{i.image.url}}" height="200px" alt=""></a>
+						</div>
+						<h3>{{i.name}}</h3>
+						<p class="product-price"><span>Price</span> Rs.{{i.price}}</p>
+						<a href="{% url 'shop:details' i.id %}" class="boxed-btn" style="width:10rem; margin:auto;">Details</a>
+					</div>
+				</div>
+				{% endfor %}
+			</div>
+{% endblock %}

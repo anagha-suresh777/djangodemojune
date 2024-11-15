@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+<div class="container">
+  <div style="height:100px;width:100%"></div>
+<h2 class="text-center mt-3">Please Login </h2>
+
+<div class="container mt-3 w-50">
+<form method="POST">
+ {% csrf_token %}
+      <div class="mb-3">
+    <label  class="form-label">Username</label>
+    <input type="text" class="form-control" name="u" placeholder="enter username">
+  </div>
+    <div class="mb-3">
+    <label  class="form-label">Password</label>
+    <input type="password" class="form-control" name="p" placeholder="enter password">
+  </div>
+        <div class="mb-3">
+
+  <input  type="submit" class="form-control"  style="height:50px;">
+
+</div>
+</form>
+</div>
+</div>
+{% endblock %}
