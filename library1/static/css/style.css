@@ -1,0 +1,14 @@
+body
+{
+background-color:#eb6f1c;
+color:black;
+}
+.form-control
+{
+border:2px solid black;
+}
+.form-label
+{
+color:blue;
+font-weight:bold;
+}

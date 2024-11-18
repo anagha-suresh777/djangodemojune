@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+
+
+
+
+
+<h2 class="text-center mt-3 mb-3">User Records</h2>
+<table class="table table-bordered table-success">
+    <tr>
+
+       <th>USERNAME</th>
+        <th>FIRST NAME</th>
+        <th>LAST NAME</th>
+        <th>PLACE</th>
+        <th>EMAIL</th>
+        <th>PHONE</th>
+
+    </tr>
+{% for i in  using %}
+
+<tr>
+<td>{{i.username}}</td>
+<td>{{i.first_name}}</td>
+    <td>{{i.last_name}}</td>
+<td>{{i.address}}</td>
+<td>{{i.email}}</td>
+    <td>{{i.phone}}</td>
+
+
+</tr>
+{% endfor %}
+</table>
+
+{% endblock %}

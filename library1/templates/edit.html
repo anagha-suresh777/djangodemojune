@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+<h2 class="text-center mt-3">Edit book details</h2>
+<div class="container w-50">
+<form method="POST" enctype="multipart/form-data">
+
+  {% csrf_token %}
+  <div class="mb-3">
+    <label  class="form-label">Title</label>
+    <input type="text" class="form-control" name="t" value="{{edit.title}}" placeholder="TITLE" >
+
+  </div>
+
+  <div class="mb-3">
+    <label  class="form-label">Author</label>
+    <input type="text" class="form-control" name="a" value="{{edit.author}}" placeholder="Author">
+  </div>
+  <div class="mb-3">
+    <label  class="form-label">Price</label>
+    <input type="number" class="form-control" name="p" value="{{edit.price}}" placeholder="Price">
+  </div>
+<div class="mb-3">
+    <label  class="form-label">Pages</label>
+    <input type="number" class="form-control" name="pa" value="{{edit.pages}}" placeholder="input number">
+  </div>
+  <div class="mb-3">
+    <label  class="form-label">Language</label>
+    <input type="text" class="form-control" name="l" value="{{edit.language}}" placeholder="Enter language">
+  </div>
+  <div class="mb-3">
+    <label  class="form-label">Cover</label>
+            <img src="{{edit.cover.url}}" height="100px" width="100px">
+    <input type="file" class="form-control" name="i" >
+  </div>
+
+  <div class="mb-3">
+    <label  class="form-label">Pdf</label>
+            <a href="{{edit.pdf.url}}">{{edit.pdf}}</a>
+    <input type="file" class="form-control" name="f" >
+  </div>
+
+  <div class="mb-3">
+    <input type="submit" class="form-control btn btn-light" value="Submit" >
+  </div>
+</form>
+</div>
+{% endblock %}
