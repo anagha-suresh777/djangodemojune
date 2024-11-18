@@ -36,7 +36,7 @@ def cart_view(request):
     total2=0
     for i in c:
         total+=i.quantity*i.product.price
-        total2+=total+45
+        total2=total+45
 
 
 
@@ -90,7 +90,7 @@ def billing(request):
         total2=0
         for i in c:
             total+=i.quantity*i.product.price
-            total2+= total + 45
+            total2= total + 45
         total1=int(total2*100)
         client=razorpay.Client(auth=('rzp_test_MZ9PRMd3HXxubh','LlS4Cb9MwYrX6URGobkW55fy')) #creates a client connection
         response_payment=client.order.create(dict(amount=total1,currency="INR")) #creates an order with razorpay using razorpay client
